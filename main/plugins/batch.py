@@ -66,7 +66,7 @@ async def _batch(event):
                 return conv.cancel()
             try:
                 value = int(_range.text)
-                if value > 100:
+                if value > 10000:
                     await conv.send_message("You can only get upto 100 files in a single batch.")
                     return conv.cancel()
             except ValueError:
@@ -102,7 +102,7 @@ async def run_batch(userbot, client, sender, link, _range):
         try:
             await get_bulk_msg(userbot, client, sender, link, i) 
         except FloodWait as fw:
-            if int(fw.x) > 299:
+            if int(fw.x) > 29999:
                 await client.send_message(sender, "Cancelling batch since you have floodwait more than 5 minutes.")
                 break
             await asyncio.sleep(fw.x + 5)
