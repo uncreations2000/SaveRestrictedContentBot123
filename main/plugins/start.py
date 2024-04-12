@@ -1,5 +1,6 @@
 #Github.com/Vasusen-code
-
+import pyrogram
+from pyrogram import Client, filters
 import os
 from .. import bot as Drone
 from telethon import events, Button
@@ -7,6 +8,11 @@ from telethon import events, Button
 from ethon.mystarts import start_srb
     
 S = '/' + 's' + 't' + 'r' + 't'
+@Drone.on_message(filters.command(["start"]))
+def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
+    bot.send_message(message.chat.id, f"__👋 Hi **{message.from_user.mention}**, I am Save Restricted Bot, I can send you restricted content by it's post link__\n\n{USAGE}",
+                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🌐 Source Code", url="https://www.bing.com/chat")]]), reply_to_message_id=message.id)
+
 
 @Drone.on(events.callbackquery.CallbackQuery(data="set"))
 async def sett(event):    
