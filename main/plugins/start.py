@@ -6,7 +6,7 @@ from telethon import events, Button
 
 from ethon.mystarts import start_srb
     
-S = '/' + 's' + 't' + 'a' + 'r' + 't'
+S = '/' + 's' + 't' + 'r' + 't'
 
 @Drone.on(events.callbackquery.CallbackQuery(data="set"))
 async def sett(event):    
